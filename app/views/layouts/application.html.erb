@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <div>
+    <% if signed_in? %>
+      <%= link_to "Salir", destroy_user_session_path%>
+    <% else %>
+      <%= link_to "Registrarse", register_path %>
+      <%= link_to "Ingresar", new_user_session_path %>
+    <% end %>
+  </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
