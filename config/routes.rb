@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'order_items/:id/add' => "order_items#add_quantity", as: "order_item_add"
+  get 'order_items/:id/reduce' => "order_items#reduce_quantity", as: "order_item_reduce"
+  post 'order_items' => "order_items#create"
+  delete 'order_items/:id/delete' => "order_items#destroy", as: "order_item_destroy"
+  get 'order_items/:id' => "order_items#show", as: "order_item"
+  
+  get 'cart' => "carts#show", as: "cart"
+  delete 'cart_empty' => "carts#destroy"
+  
+  resources :orders, only: [:index, :show, :new]
   resources :products
   
   devise_for :users, skip: [:sessions]

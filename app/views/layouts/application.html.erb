@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FerreteriaRb</title>
+    <title>ferreteriarb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-
   <body>
     <div>
-    <% if signed_in? %>
-      <%= link_to "Logout", destroy_user_session_path%>
-      <%= link_to "Products", products_path%>
-    <% else %>
-      <%= link_to "Register", register_path %>
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
-  </div>
+      <% if signed_in? %>
+        <%= link_to "Home", root_path%>
+        <%= link_to "Products", products_path%>
+        <%= link_to "Orders", orders_path%>
+        <%= link_to "Cart", cart_path%>
+        <%= link_to "Logout", destroy_user_session_path%>
+      <% else %>
+        <%= link_to "Register", register_path %>
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+    </div>
     <p class="alert" style="color: green"><%= notice %></p>
     <%= yield %>
   </body>

@@ -1,12 +1,11 @@
 <h1>Products</h1>
-
 <div id="products">
   <% @products.each do |product| %>
     <%= render product %>
     <p>
+      <%= button_to "Add #{product.name} to cart", order_items_path(product_id: product.id) %>
       <%= link_to "Show this product", product %>
     </p>
   <% end %>
 </div>
-
 <%= link_to "New product", new_product_path %>

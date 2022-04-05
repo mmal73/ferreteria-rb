@@ -12,3 +12,7 @@ AllCops:
     - 'tmp/**/*'
 Style/Documentation:
   Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/EndOfLine:
+  EnforcedStyle: lf
